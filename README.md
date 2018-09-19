@@ -1,3 +1,7 @@
+#Using
+
+Ông git về xong chạy terminal: "npm install" để nó tự cài các node_module
+
 # Cal
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
