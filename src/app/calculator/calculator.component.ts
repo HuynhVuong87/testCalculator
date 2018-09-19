@@ -22,6 +22,9 @@ export class CalculatorComponent implements OnInit {
   total(){
     this.inputShow  = math.eval(this.inputShow)
   }
+  clear(){
+    this.inputShow = ""
+  }
   
 
 }
