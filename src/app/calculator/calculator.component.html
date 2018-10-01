@@ -3,7 +3,7 @@
 <ul>
   <li *ngFor="let item of arr; let i = index">
     {{i+1}}: {{item.task}} ({{item.create_at | date: 'HH:mm dd/MM/yyyy '}})
-    <button (click)="deleteTask(item.id)">x</button>
     <button (click)="editTask(item.id)">#</button>
+    <button (click)="deleteTask(item.id)">x</button>
   </li>
 </ul>
