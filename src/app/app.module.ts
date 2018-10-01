@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import * as math from 'mathjs';
@@ -9,8 +10,8 @@ import * as math from 'mathjs';
     CalculatorComponent
   ],
   imports: [
-    BrowserModule
-    
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

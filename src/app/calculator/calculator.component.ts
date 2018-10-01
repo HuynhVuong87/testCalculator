@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as math from 'mathjs';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
@@ -7,24 +6,40 @@ import * as math from 'mathjs';
 })
 export class CalculatorComponent implements OnInit {
 
-  inputShow:string = "";
+  task: string = "";
 
-  constructor() {    
+  constructor() {
   }
 
   ngOnInit() {
   }
 
-  inputFunction($event){
-    var number:string = $event.target.getAttribute('value');
-    this.inputShow = this.inputShow + number;
+  arr: Array<{ id: number, task: string, create_at: any }> = [];
+
+  addTask() {
+    let index: Number = this.arr.findIndex(x => x.task == this.task);
+
+    if(this.task == "")  alert("Vui lòng nhập đủ dữ liệu");
+    else if (index == -1) this.arr.push({
+      id: (new Date()).getTime(),
+      task: this.task,
+      create_at: new Date()
+    });
+    else alert("Nội dung task đã tồn tại tại mục thứ " + (+index + 1));
   }
-  total(){
-    this.inputShow  = math.eval(this.inputShow)
+
+  findIndex(id) {
+    let index = this.arr.findIndex(x => x.id == id);
+    return index
   }
-  clear(){
-    this.inputShow = ""
+
+  deleteTask(id) {
+    this.arr.splice(this.findIndex(id), 1);
   }
-  
+
+  editTask(id) {
+    let edit = prompt(this.arr[this.findIndex(id)].task);
+    if (edit) this.arr[this.findIndex(id)].task = edit;
+  }
 
 }
